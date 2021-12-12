@@ -51,3 +51,6 @@ const ANNOUNCEMENT_PHOTOS = [
 function getRandomElementArray(array) {
   return array[getRandomPositiveInteger(0, array.length - 1)];
 }
+function getRandomSubArray(array) {
+  return array.sort(() => 0.5 - Math.random()).slice(0, getRandomPositiveInteger(1, array.length - 1));
+}
