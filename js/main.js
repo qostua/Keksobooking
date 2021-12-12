@@ -47,3 +47,7 @@ const ANNOUNCEMENT_PHOTOS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg',
 ];
+
+function getRandomElementArray(array) {
+  return array[getRandomPositiveInteger(0, array.length - 1)];
+}
