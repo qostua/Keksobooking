@@ -54,3 +54,36 @@ function getRandomElementArray(array) {
 function getRandomSubArray(array) {
   return array.sort(() => 0.5 - Math.random()).slice(0, getRandomPositiveInteger(1, array.length - 1));
 }
+function createAnnouncement(index) {
+  const type = getRandomElementArray(Object.keys(ANNOUNCEMENT_TYPES));
+  const rooms = getRandomPositiveInteger(1, 5);
+  const lat = getRandomPositiveFloat(35.65000, 35.70000, 5);
+  const lng = getRandomPositiveFloat(139.70000, 139.80000, 5);
+
+  const announcement = {
+    author: {
+      avatar: `img/avatars/user${index.toString().padStart(2, 0)}.png`,
+    },
+    offer: {
+      title: `${ANNOUNCEMENT_TYPES[type]} (всего комнат: ${rooms})`,
+      address: `${lat}, ${lng}`,
+      price: getRandomPositiveInteger(10, 100),
+      type: type,
+      rooms: rooms,
+      guests: getRandomPositiveInteger(1, 10),
+      checkin: getRandomElementArray(ANNOUNCEMENT_CHECKINS),
+      checkout: getRandomElementArray(ANNOUNCEMENT_CHECKOUTS),
+      features: getRandomSubArray(ANNOUNCEMENT_FEATURES),
+      description: `${ANNOUNCEMENT_TYPES[type]} c ${getRandomSubArray(ANNOUNCEMENT_DESCRIPTION).join(', ')} комнатами`,
+      photos: getRandomSubArray(ANNOUNCEMENT_PHOTOS),
+    },
+    location: {
+      lat: lat,
+      lng: lng,
+    },
+  };
+
+  return announcement;
+}
+
+const similarAnnouncements = new Array(10).fill().map((item, index) => createAnnouncement(index + 1));
