@@ -4,9 +4,6 @@ function getRandomPositiveInteger (val1, val2) {
   const result = Math.random() * (upper - lower + 1) + lower;
   return Math.floor(result);
 }
-
-getRandomPositiveInteger(0, 1);
-
 function getRandomPositiveFloat (val1, val2, digits = 1) {
   const lower = Math.min(Math.abs(val1), Math.abs(val2));
   const upper = Math.max(Math.abs(val1), Math.abs(val2));
@@ -14,4 +11,3 @@ function getRandomPositiveFloat (val1, val2, digits = 1) {
   return result.toFixed(digits);
 }
 
-getRandomPositiveFloat(1.1, 2.1, 10);
