@@ -56,7 +56,7 @@ function createAnnouncement(index) {
     offer: {
       title: `${ANNOUNCEMENT_TYPES[type]} (всего комнат: ${rooms})`,
       address: `${lat}, ${lng}`,
-      price: getRandomPositiveInteger(10, 100),
+      price: getRandomPositiveInteger(10, 200) * 100,
       type: type,
       rooms: rooms,
       guests: getRandomPositiveInteger(1, 10),
